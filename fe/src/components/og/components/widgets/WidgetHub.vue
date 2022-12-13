@@ -63,8 +63,6 @@ export default defineComponent({
             const isDuplicate = valueArr.some(function (item, idx) {
                 return valueArr.indexOf(item) != idx
             });
-
-
             if (isDuplicate) {
                 this.widgetListInProgress.splice(evt.added.newIndex, 1)
                 console.log(this.widgetListInProgress, 'this.widgetListInProgress');

@@ -20,23 +20,23 @@ export default {
 
 <style scoped>
 .left-global-navigation{
+    display: flex;
+    align-items: center;
+    gap: 16px;
     position: fixed;
     left: 0;
     top: 0;
-    display: flex;
-    gap: 4px;
-    
-    flex-direction: column;
+    writing-mode: vertical-lr;
     width: 72px;   
     height: 100vh;
-    padding-top: 4px;
-    background-color: rgba(0, 0, 0, .02);
+    padding-top: 16px;
+    border-right: #252525 solid 2px;
 }
 a,
 .status{
-    padding-left: 4px;
+    display: inline;
     text-decoration: none;
-    font-size: .75rem;
     color: black;
+    font-weight: 600;
 }
 </style>

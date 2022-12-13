@@ -28,6 +28,6 @@ export default {
     width: 340px;   
     height: 100vh;
     padding: 16px;
-    background-color: rgba(0, 0, 0, .02);
+    border-left: #252525 solid 2px;
 }
 </style>

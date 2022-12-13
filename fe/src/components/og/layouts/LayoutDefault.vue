@@ -27,7 +27,5 @@ export default {
     margin-left: 72px;
     width: calc(100vw - 340px - 72px) ;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, .1);
-
 }
 </style>

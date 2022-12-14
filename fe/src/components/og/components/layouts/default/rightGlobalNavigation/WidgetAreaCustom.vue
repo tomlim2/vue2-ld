@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import WidgetHub from '@/components/og/components/widgets/WidgetHub.vue'
-import ButtonBasic from '../../../buttons/ButtonBasic.vue';
+import ButtonBasic from '@/components/og/components/buttons/ButtonBasic.vue';
 import store from '@/store';
 import router from '@/router';
 
@@ -55,6 +55,7 @@ export default {
 
 .head {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 </style>

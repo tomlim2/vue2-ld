@@ -1,18 +1,23 @@
 <template>
     <div class="widget-item">
-        <WidgetCustomTypeA v-if="widgetSingleData.type == 'typeA'" />
-        <WidgetCustomTypeB v-if="widgetSingleData.type == 'typeB'" />
-        <WidgetCustomTypeC v-if="widgetSingleData.type == 'typeC'" />
-        <WidgetCustomTypeD v-if="widgetSingleData.type == 'typeD'" />
+        <WidgetItemWrapper :removeItem="onRemoveButtonClick" :type="type">
+            <WidgetCustomTypeA v-if="widgetSingleData.type == 'typeA'" />
+            <WidgetCustomTypeB v-if="widgetSingleData.type == 'typeB'" />
+            <WidgetCustomTypeC v-if="widgetSingleData.type == 'typeC'" />
+            <WidgetCustomTypeD v-if="widgetSingleData.type == 'typeD'" />
+        </WidgetItemWrapper>
     </div>
 </template>
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue'
+import WidgetItemWrapper from '@/components/og/components/widgets/WidgetItemWrapper.vue';
 import WidgetCustomTypeA from '@/components/og/components/widgets/custom/WidgetCustomTypeA.vue';
 import WidgetCustomTypeB from '@/components/og/components/widgets/custom/WidgetCustomTypeB.vue';
 import WidgetCustomTypeC from '@/components/og/components/widgets/custom/WidgetCustomTypeC.vue';
 import WidgetCustomTypeD from '@/components/og/components/widgets/custom/WidgetCustomTypeD.vue';
+
+type WidgetType = 'widget-list' | 'widget-user' | undefined
 
 interface Widget {
     name: string
@@ -24,14 +29,23 @@ export default defineComponent({
     name: "widget-item",
     display: "Widget-item",
     components: {
+        WidgetItemWrapper,
         WidgetCustomTypeA,
         WidgetCustomTypeB,
         WidgetCustomTypeC,
         WidgetCustomTypeD
     },
     props: {
+        type: {
+            type: String as PropType<WidgetType>,
+            default: undefined
+        },
         widgetSingleData: {
             type: Object as PropType<Widget>,
+            required: true
+        },
+        onRemoveButtonClick: {
+            type: Function,
             required: true
         }
     },

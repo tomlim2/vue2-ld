@@ -2,8 +2,8 @@
     <draggable :v-model="widgetListInProgress" @change="log" :list="widgetListInProgress" :clone="cloneWidget"
         v-bind="dragOptions" @start="drag = true" @end="drag = false">
         <transition-group type="transition" :name="!drag ? 'flip-list' : null" :class="['widget-hub', type]">
-            <WidgetItem v-for="(widget) in widgetListInProgress" :widgetSingleData="widget"
-                :key='widget && widget.widgetId' />
+            <WidgetItem v-for="(widget, index) in widgetListInProgress" :widgetSingleData="widget" :type="type"
+                :key='widget && widget.widgetId' :onRemoveButtonClick="() => onRemoveButtonClick(index)" />
         </transition-group>
     </draggable>
 </template>
@@ -15,6 +15,8 @@ import WidgetItem from '@/components/og/components/widgets/WidgetItem.vue'
 import store from '@/store';
 
 let globalId = 1112
+
+type WidgetType = 'widget-list' | 'widget-user' | undefined
 
 interface Widget {
     name: string
@@ -41,8 +43,8 @@ export default defineComponent({
     components: { WidgetItem, draggable },
     props: {
         type: {
-            type: String,
-            default: 'inUse'
+            type: String as PropType<WidgetType>,
+            default: 'widget-user'
         },
         widgetList: {
             type: Array as PropType<Widget[]>,
@@ -58,16 +60,19 @@ export default defineComponent({
         }
     },
     methods: {
-        log: function (evt: any) {
+        log(evt: any) {
             const valueArr = this.widgetListInProgress.map(function (item) { return item.name });
             const isDuplicate = valueArr.some(function (item, idx) {
                 return valueArr.indexOf(item) != idx
             });
             if (isDuplicate) {
                 this.widgetListInProgress.splice(evt.added.newIndex, 1)
-                console.log(this.widgetListInProgress, 'this.widgetListInProgress');
             }
             // console.log(evt, 'evt');
+        },
+        onRemoveButtonClick(index: number) {
+            console.log(index);
+            this.widgetListInProgress.splice(index, 1)
         },
         cloneWidget(event: any) {
             console.log(event, 'clone');
@@ -76,9 +81,6 @@ export default defineComponent({
                 type: event.type,
                 widgetId: globalId++,
             }
-            console.log(cloned);
-
-
             return cloned
         }
     },
@@ -89,7 +91,7 @@ export default defineComponent({
         dragOptions(): dragOptions {
             return {
                 animation: 200,
-                group: this.type == 'available' ? this.availableGroup : 'widgets',
+                group: this.type == 'widget-list' ? this.availableGroup : 'widgets',
                 disabled: !this.widgetEditMode,
                 ghostClass: "ghost"
             };
@@ -109,7 +111,7 @@ export default defineComponent({
     min-height: 90px;
 }
 
-.available {
+.widget-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;

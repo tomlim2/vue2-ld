@@ -1,7 +1,7 @@
 <template>
     <div class="section-widget">
         <div class="head">
-            <h3>Widgets</h3>
+            <TextTitle>Widgets</TextTitle>
             <ButtonBasic :onClick="toggleEditMode" :activated="widgetEditMode">{{widgetEditMode ? 'Save' : 'Edit'}}</ButtonBasic>
         </div>
         <WidgetHub type="widget-list" :widgetList="availableWidgets" />
@@ -12,16 +12,18 @@
 import WidgetHub from '@/components/og/components/widgets/WidgetHub.vue'
 import ButtonBasic from '@/components/og/components/buttons/ButtonBasic.vue';
 import store from '@/store';
+import TextTitle from '../../components/texts/TextTitle.vue';
 
 export default {
     name: "section-widget",
     display: "Section Widget",
     components: {
-        WidgetHub,
-        ButtonBasic
-    },
+    WidgetHub,
+    ButtonBasic,
+    TextTitle
+},
     computed:{
-        widgetEditMode: () => { return store.state.widgetEditMode },
+        widgetEditMode: () => { return store.state.appMode == 'widget' },
         availableWidgets: ()=> {
             return store.state.widgetList.available
         }

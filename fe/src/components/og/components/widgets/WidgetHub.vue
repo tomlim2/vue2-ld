@@ -68,7 +68,6 @@ export default defineComponent({
             if (isDuplicate) {
                 this.widgetListInProgress.splice(evt.added.newIndex, 1)
             }
-            // console.log(evt, 'evt');
         },
         onRemoveButtonClick(index: number) {
             console.log(index);
@@ -86,7 +85,7 @@ export default defineComponent({
     },
     computed: {
         widgetEditMode: () => {
-            return store.state.widgetEditMode
+            return store.state.appMode == 'widget'
         },
         dragOptions(): dragOptions {
             return {

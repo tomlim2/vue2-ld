@@ -50,7 +50,4 @@ export default {
 </script>
 
 <style>
-.row{
-  position: relative;
-}
 </style>

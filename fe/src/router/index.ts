@@ -1,4 +1,4 @@
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { layouts, pages } from '@/router/pages'
 
@@ -11,7 +11,7 @@ const router = new VueRouter({
             name: "default",
             path: '/',
             //@ts-ignore
-            component: layouts.default as VueConstructor<Vue>,
+            component: layouts.default,
             children: [
                 {
                     name: "home",
@@ -23,6 +23,12 @@ const router = new VueRouter({
                     name: "widget",
                     component: pages.widget,
                     path: '/widget'
+                },
+                {
+                    name: "listener checker",
+                    //@ts-ignore
+                    component: pages.listenerChecker,
+                    path: '/listener-checker'
                 },
             ]
         },

@@ -23,7 +23,7 @@ export default defineComponent({
     methods: {},
     mounted: () => { },
     computed: {
-        widgetEditMode: () => { return store.state.widgetEditMode }
+        widgetEditMode(){ return store.state.appMode == 'widget' }
     }
 });
 </script>

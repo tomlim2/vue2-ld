@@ -1,13 +1,13 @@
 <template>
-    <div class="page-home">
-        <SectionHome/>
+    <div class="page-listener-checker">
+        <SectionListenChecker/>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import store from '@/store'
-import SectionHome from '../sections/home/sectionHome.vue';
+import SectionListenChecker from '../sections/listenerChecker/sectionListenChecker.vue';
 
 export default defineComponent({
     name: "page-home",
@@ -15,12 +15,12 @@ export default defineComponent({
     computed: {
         widgetEditMode: () => { return store.state.appMode == 'widget'; }
     },
-    components: { SectionHome }
+    components: { SectionListenChecker }
 })
 </script>
 
 <style scoped>
-.page-home{
+.page-listener-checker{
     color: red;
 }
 </style>

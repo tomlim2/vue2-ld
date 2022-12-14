@@ -1,42 +1,46 @@
 <template>
     <div class="left-global-navigation">
-        <router-link to="/">Home</router-link>
-        <router-link to="/widget">Widget</router-link>
-        <span class="status">widget edit mode : {{ widgetEditMode }}</span>
+        <SvgLogo/>
+        <TextLink to="/">Home</TextLink>
+        <TextLink to="/widget">Widget</TextLink>
+        <TextLink to="/listener-checker">Listener Checker</TextLink>
     </div>
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import store from '@/store'
+import TextLink from '@/components/og/components/texts/TextLink.vue';
+import SvgLogo from '../../svgs/SvgLogo.vue';
 
-export default {
+export default defineComponent({
     name: "left-global-navigation",
     display: "Left Global Navigation",
-    computed:{
-        widgetEditMode: () => { return store.state.widgetEditMode }
+    components:{
+    TextLink,
+    SvgLogo
+},
+    computed: {
+        widgetEditMode: () => { return store.state.appMode == 'widget' }
     }
-};
+});
 </script>
 
 <style scoped>
-.left-global-navigation{
+.left-global-navigation {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 24px;
     position: fixed;
     left: 0;
     top: 0;
     writing-mode: vertical-lr;
-    width: 72px;   
+    width: 72px;
     height: 100vh;
-    padding-top: 16px;
+    padding-top: 24px;
     border-right: #252525 solid 2px;
+    z-index: 999;
+    background-color: white;
 }
-a,
-.status{
-    display: inline;
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-}
+
 </style>

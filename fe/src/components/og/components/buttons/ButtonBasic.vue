@@ -1,11 +1,11 @@
 <template>
-    <button class="button" :class="[{activated}]" v-on:click="onButtonClick" :disabled="disabled">
-        <slot />
-        <span class="name">
+        <button class="button" :class="[{ activated }]" v-on:click="onButtonClick" :disabled="disabled">
             <slot />
-        </span>
-        <span class="base" />
-    </button>
+            <span class="name" :style="{ backgroundColor, color }">
+                <slot />
+            </span>
+            <span class="base" />
+        </button>
 </template>
 
 <script lang="ts">
@@ -18,6 +18,8 @@ export default defineComponent({
         onClick: { type: Function, required: true },
         activated: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        backgroundColor: { type: String, default: '' },
+        color: { type: String, default: '' }
     },
     methods: {
         onButtonClick() {
@@ -27,7 +29,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 button {
     position: relative;
     padding: 8px 10px;
@@ -41,12 +43,13 @@ button {
     left: 0;
     top: 0;
     padding: 6px 8px;
-    background-color: white;
     border: 2px black solid;
     border-radius: 5px;
     color: black;
+    background-color: white;
     z-index: 1;
     transition: all ease-in-out 150ms;
+    font-weight: 600;
     pointer-events: none;
 }
 
@@ -65,7 +68,7 @@ button:hover .name {
     background-color: black;
 }
 
-.activated .name{
+.activated .name {
     background-color: greenyellow;
 }
 </style>

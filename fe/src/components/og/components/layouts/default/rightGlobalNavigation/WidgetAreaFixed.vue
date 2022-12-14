@@ -1,11 +1,11 @@
 <template>
     <div class="widget-area-fixed">
-        <h3>Widget Fixed Part</h3>
+        <h3>Fixed Widgets</h3>
         <div class="widget-component">
-            widget fixed 1
+            Fixed widget 1
         </div>
         <div class="widget-component">
-            widget fixed 2
+            Fixed widget 2
         </div>
     </div>
 </template>
@@ -26,10 +26,12 @@ export default {
 }
 
 .widget-component {
+    padding: 8px;
     width: 100%;
     height: 54px;
-    background-color: #efefef;
-    color: #252525;
+    background-color: #252525;
+    color: #fcfcfc;
     border-radius: 10px;
+    border: 2px solid #cdcdcd;
 }
 </style>

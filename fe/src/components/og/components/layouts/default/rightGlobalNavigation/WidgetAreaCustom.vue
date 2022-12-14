@@ -23,7 +23,7 @@ export default {
         ButtonBasic
     },
     computed:{
-        widgetEditMode: () => { return store.state.widgetEditMode },
+        widgetEditMode: () => { return store.state.appMode == 'widget' },
         inUsedWidgets: ()=> {
             return store.state.widgetList.using
         }
@@ -32,7 +32,7 @@ export default {
         toggleEditMode: ()=>{   
             store.commit('toggleWidgetEditMode')
 
-            if(store.state.widgetEditMode && router.currentRoute.name !== 'widget'){
+            if(store.state.appMode == 'widget' && router.currentRoute.name !== 'widget'){
                 console.log(router.currentRoute.name !== 'widget');
                 
                 router.push('/widget')

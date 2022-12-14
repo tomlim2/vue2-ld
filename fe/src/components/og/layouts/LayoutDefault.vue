@@ -2,7 +2,9 @@
     <div class="layout">
         <LeftGlobalNavigation />
         <main class="main">
-            <router-view />
+            <transition name="slide">
+                <router-view />
+            </transition>
         </main>
         <RightGlobalNavigation />
     </div>
@@ -23,19 +25,35 @@ export default defineComponent({
         LeftGlobalNavigation,
         RightGlobalNavigation
     },
-    mounted() {
-        this.getData()
-    },
     methods: {
         getData: async () => {
             const hey = await axios.get('http://localhost:3000/api/hello')
             console.log(hey, 'hey');
         }
-    }
+    },
+    mounted() {
+        this.getData()
+    },
 });
 </script>
 
 <style scoped>
+.slide-enter-active {
+    transition: transform 300ms ease-out;
+}
+
+.slide-leave-active {
+    transition: opacity 0;
+}
+
+.slide-enter {
+    transform: translateX(-100vw);
+}
+
+.slide-leave-to {
+    opacity: 0;
+}
+
 .main {
     margin-left: 72px;
     width: calc(100vw - 340px - 72px);

@@ -3,10 +3,18 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
+type AppMode = 'default' | 'widget'
+
+interface StoreState {
+  count: number
+  appMode: AppMode
+  widgetList: any
+}
+
 const store = new Vuex.Store({
   state: {
     count: 0,
-    widgetEditMode: false,
+    appMode: 'default' as AppMode,
     widgetList: {
       using: [
         {
@@ -45,11 +53,18 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    increment(state: any) {
+    increment(state: StoreState) {
       state.count++
     },
-    toggleWidgetEditMode(state) {
-      state.widgetEditMode = !state.widgetEditMode
+    toggleWidgetEditMode(state: StoreState) {
+      if (state.appMode == 'widget') {
+        state.appMode = 'default'
+      } else {
+        state.appMode = 'widget'
+      }
+    },
+    resetAppMode(state: StoreState) {
+      state.appMode = 'default'
     }
   }
 })

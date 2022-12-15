@@ -1,9 +1,9 @@
 <template>
     <draggable :v-model="widgetListInProgress" @change="log" :list="widgetListInProgress" :clone="cloneWidget"
         v-bind="dragOptions" @start="drag = true" @end="drag = false">
-        <transition-group type="transition" :name="!drag ? 'flip-list' : null" :class="['widget-hub', type]">
+        <transition-group type="transition" :name="!drag ? 'widget-draggable-list' : ''" :class="['widget-hub', type]">
             <WidgetItem v-for="(widget, index) in widgetListInProgress" :widgetSingleData="widget" :type="type"
-                :key='widget && widget.widgetId' :onRemoveButtonClick="() => onRemoveButtonClick(index)" />
+                :key='widget.feId ?? index' :onRemoveButtonClick="() => onRemoveButtonClick(index)" />
         </transition-group>
     </draggable>
 </template>
@@ -20,8 +20,10 @@ type WidgetType = 'widget-list' | 'widget-user' | undefined
 
 interface Widget {
     name: string
+    widgetUid: number | string
     type: string
-    widgetId: number | string
+    apiUrl: string
+    feId: number
 }
 
 interface availableGroup {
@@ -78,7 +80,8 @@ export default defineComponent({
             const cloned = {
                 name: event.name,
                 type: event.type,
-                widgetId: globalId++,
+                widgetUid: globalId++,
+                apiUrl: globalId++,
             }
             return cloned
         }
@@ -103,6 +106,8 @@ export default defineComponent({
 </script>
 
 <style>
+@import '@/components/og/styles/transitions.css';
+
 .widget-hub {
     display: flex;
     flex-direction: column;

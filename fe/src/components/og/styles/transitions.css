@@ -1,0 +1,89 @@
+/* page */
+.page-slide-enter-active {
+    transition: transform 300ms ease-out;
+}
+
+.page-slide-leave-active {
+    transition: opacity 0;
+}
+
+.page-slide-enter {
+    transform: translateX(-100vw);
+}
+
+.page-slide-leave-to {
+    opacity: 0;
+}
+
+/* draggable move */
+.no-move {
+    transition: transform 0s;
+}
+
+.ghost {
+    opacity: 0.5;
+    background: #c8ebfb;
+}
+
+.list-group {
+    min-height: 20px;
+}
+
+.list-group-item {
+    cursor: move;
+}
+
+.list-group-item i {
+    cursor: pointer;
+}
+
+
+
+/* component */
+.pop-enter-active {
+    animation: enterWithPop 200ms linear forwards;
+}
+
+.pop-enter {}
+
+.pop-leave-active {
+    animation: leaveWithPop 200ms linear forwards;
+}
+
+.pop-leave-to {}
+
+@keyframes enterWithPop {
+    0% {
+        transform: scale(0);
+    }
+
+    30% {
+        transform: scale(1.2);
+    }
+
+    60% {
+        transform: scale(.9);
+    }
+
+    90% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes leaveWithPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}

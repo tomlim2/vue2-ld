@@ -46,5 +46,10 @@ export default defineComponent({
 .logo {
     cursor: pointer;
     transition: all 150ms ease-in-out;
+
+}
+
+.logo:hover{
+    fill: blue;
 }
 </style>

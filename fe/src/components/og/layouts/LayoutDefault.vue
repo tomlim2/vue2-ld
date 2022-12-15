@@ -2,7 +2,7 @@
     <div class="layout">
         <LeftGlobalNavigation />
         <main class="main">
-            <transition name="slide">
+            <transition name="page-slide">
                 <router-view />
             </transition>
         </main>
@@ -27,7 +27,6 @@ export default defineComponent({
     },
     methods: {
         getData: async () => {
-            // const hey = await axios.get('http://localhost:3000/api/widget/widgets')
             const hey = await model.test.getWidgets()
             console.log(hey, 'hey');
         }
@@ -39,21 +38,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.slide-enter-active {
-    transition: transform 300ms ease-out;
-}
-
-.slide-leave-active {
-    transition: opacity 0;
-}
-
-.slide-enter {
-    transform: translateX(-100vw);
-}
-
-.slide-leave-to {
-    opacity: 0;
-}
+@import '@/components/og/styles/transitions.css';
 
 .main {
     margin-left: 72px;

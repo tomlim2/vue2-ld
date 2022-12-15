@@ -4,7 +4,7 @@
             <TextTitle>Widgets</TextTitle>
             <ButtonBasic :onClick="toggleEditMode" :activated="widgetEditMode">{{widgetEditMode ? 'Save' : 'Edit'}}</ButtonBasic>
         </div>
-        <WidgetHub type="widget-list" :widgetList="availableWidgets" />
+        <WidgetHub v-if="widgetsList"  type="widget-list" :widgetList="widgetsList" />
     </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
 },
     computed:{
         widgetEditMode: () => { return store.state.appMode == 'widget' },
-        availableWidgets: ()=> {
-            return store.state.widgetList.available
+        widgetsList: ()=> {
+            return store.state.widgets.list
         }
     },
     methods: {

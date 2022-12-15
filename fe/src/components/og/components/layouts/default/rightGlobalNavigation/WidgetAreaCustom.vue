@@ -5,7 +5,7 @@
             <ButtonBasic :onClick="toggleEditMode" :activated="widgetEditMode">{{widgetEditMode ? 'Save' : 'Edit'}}</ButtonBasic>
         </div>
 
-        <WidgetHub :widgetList="inUsedWidgets" />
+        <WidgetHub v-if="inUsedWidgets" :widgetList="inUsedWidgets" />
     </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     computed:{
         widgetEditMode: () => { return store.state.appMode == 'widget' },
         inUsedWidgets: ()=> {
-            return store.state.widgetList.using
+            return store.state.widgets.user
         }
     },
     methods: {

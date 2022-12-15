@@ -21,8 +21,10 @@ type WidgetType = 'widget-list' | 'widget-user' | undefined
 
 interface Widget {
     name: string
+    widgetUid: number | string
     type: string
-    widgetId: number | string
+    apiUrl: string
+    feId: number
 }
 
 export default defineComponent({

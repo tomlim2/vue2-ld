@@ -44,58 +44,7 @@ export default defineComponent({
 </script>
 
 <style scoped >
-.pop-enter-active {
-    /* transition: transform 150ms ease-in-out; */
-    animation: enterWithPop 200ms linear forwards;
-}
-
-.pop-enter {
-    /* transform: scale(0); */
-}
-
-.pop-leave-active {
-    animation: leaveWithPop 200ms linear forwards;
-}
-
-.pop-leave-to {
-    /* transform: scale(0); */
-}
-
-@keyframes enterWithPop {
-    0% {
-        transform: scale(0) ;
-    }
-
-    30% {
-        transform: scale(1.2);
-    }
-
-    60% {
-        transform: scale(.9);
-    }
-
-    90% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes leaveWithPop {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(0);
-    }
-}
+@import '@/components/og/styles/transitions.css';
 
 .widget-wrapper {
     position: relative;
@@ -107,7 +56,7 @@ export default defineComponent({
 
 .remove-button {
     position: absolute;
-    right: 4px;
+    right: -4px;
     top: 2px;
 }
 </style>

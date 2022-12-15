@@ -16,7 +16,7 @@ export default defineComponent({
 <style scoped>
 h2 {
     display: inline-block;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 </style>

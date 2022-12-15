@@ -8,7 +8,6 @@ const router = new VueRouter({
     mode: "history",
     routes: [
         {
-            name: "default",
             path: '/',
             //@ts-ignore
             component: layouts.default,

@@ -37,7 +37,7 @@ export default defineComponent({
     writing-mode: vertical-lr;
     width: 72px;
     height: 100vh;
-    padding-top: 24px;
+    padding-top: 22px;
     border-right: #252525 solid 2px;
     z-index: 999;
     background-color: white;

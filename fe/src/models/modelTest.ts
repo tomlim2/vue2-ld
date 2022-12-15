@@ -16,8 +16,8 @@ class ModelTest {
         }
     }
 
-    getWidgetList = async () => {
-        const response = this.GET('widget/widgetList')
+    getWidgets = async () => {
+        const response = await this.GET('widget/widgets')
 
         return response
     }

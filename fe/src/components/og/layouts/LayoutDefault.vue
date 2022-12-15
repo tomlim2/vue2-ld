@@ -15,8 +15,8 @@ import { defineComponent } from 'vue'
 
 import LeftGlobalNavigation from '@/components/og/components/layouts/default/LeftGlobalNavigation.vue'
 import RightGlobalNavigation from '@/components/og/components/layouts/default/RightGlobalNavigation.vue'
-
-import axios from 'axios'
+import { useModel } from '@/models'
+const model = useModel()
 
 export default defineComponent({
     name: "layout-default",
@@ -27,7 +27,8 @@ export default defineComponent({
     },
     methods: {
         getData: async () => {
-            const hey = await axios.get('http://localhost:3000/api/hello')
+            // const hey = await axios.get('http://localhost:3000/api/widget/widgets')
+            const hey = await model.test.getWidgets()
             console.log(hey, 'hey');
         }
     },

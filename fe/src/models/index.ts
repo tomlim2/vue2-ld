@@ -1,13 +1,13 @@
 import ModelTest from "@/models/modelTest"
 
 class ModelManager {
-    dummy: ModelTest
+    test: ModelTest
 
     constructor() {
-        this.dummy = new ModelTest
+        this.test = new ModelTest
     }
 }
 
 export const useModel = () => {
-    return new ModelManager()
+    return new ModelManager
 }

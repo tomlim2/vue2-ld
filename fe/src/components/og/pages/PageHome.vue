@@ -1,12 +1,13 @@
 <template>
     <div class="page-home">
-        <SectionHome/>
+        <SectionHome />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import store from '@/store'
+
 import SectionHome from '../sections/home/sectionHome.vue';
 
 export default defineComponent({
@@ -20,7 +21,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.page-home{
-    color: red;
-}
 </style>

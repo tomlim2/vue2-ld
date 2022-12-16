@@ -1,45 +1,42 @@
 <template>
     <div class="section-listener-checker">
         <TextTitle>
-            popcorn
+            Popcorn
         </TextTitle>
-        <TextParagraph>Twojs</TextParagraph>
+        <TextParagraph>Twojs 라이브러리 호환 에러</TextParagraph>
         <div class="content">
-            자동저장 조건1111
-            <ul>
-                <li>
-                    조건1. out focus
-
-                    <div>- back to profile 버튼 눌렀을 때 profile로 바로 안돌아감</div>
-                    <div>- menu 건들었을때</div>
-                    <div>- dropdown 목록 골랐을때</div>
-                </li>
-                <li>
-                    의외1. 팀 입력란은 자동저장 안됨
-                </li>
-            </ul>
+            <div id="draw-shapes">draw-shapes</div>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
 import store from '@/store'
 
 import TextTitle from '@/components/og/components/texts/TextTitle.vue';
 import TextParagraph from '@/components/og/components/texts/TextParagraph.vue';
 
-export default defineComponent({
+export default ({
     name: "section-popcorn",
     display: "Section Popcorn",
     components: {
-    TextTitle,
-    TextParagraph
-},
+        TextTitle,
+        TextParagraph
+    },
     computed: {
         widgetEditMode: () => { return store.state.appMode == 'widget' }
-    }
+    },
+    data() {
+        return ({
 
+        })
+    },
+    methods: {
+
+    },
+    mounted() {
+
+    }
 })
 </script>
 
@@ -49,7 +46,7 @@ export default defineComponent({
     color: #252525;
 }
 
-.content{
+.content {
     margin-top: 16px;
 }
 </style>

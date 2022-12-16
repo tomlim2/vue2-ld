@@ -35,6 +35,12 @@ const router = new VueRouter({
                     component: pages.popcorn,
                     path: '/popcorn'
                 },
+                {
+                    name: "image-crop",
+                    //@ts-ignore
+                    component: pages.imageCrop,
+                    path: '/image-crop'
+                },
             ]
         },
 

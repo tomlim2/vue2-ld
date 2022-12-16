@@ -1,11 +1,11 @@
 <template>
-        <button class="button" :class="[{ activated }]" v-on:click="onButtonClick" :disabled="disabled">
+    <button class="button" :class="[{ activated }]" v-on:click="onButtonClick" :disabled="disabled">
+        <span class="name" :style="{ backgroundColor, color }">
             <slot />
-            <span class="name" :style="{ backgroundColor, color }">
-                <slot />
-            </span>
-            <span class="base" />
-        </button>
+        </span>
+        <slot />
+        <span class="base" />
+    </button>
 </template>
 
 <script lang="ts">
@@ -32,7 +32,7 @@ export default defineComponent({
 <style scoped>
 button {
     position: relative;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border: none;
     cursor: pointer;
 }
@@ -42,7 +42,7 @@ button {
     position: absolute;
     left: 0;
     top: 0;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border: 2px black solid;
     border-radius: 5px;
     color: black;

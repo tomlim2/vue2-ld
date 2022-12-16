@@ -1,8 +1,5 @@
 <template>
     <div class="section-home">
-        <TextTitle>
-            HOME
-        </TextTitle>
         <main class="main">
             <TextTitle usage="main">
                 TodoList
@@ -72,7 +69,7 @@ export default defineComponent({
     gap: 24px;
 }
 
-.todo-gird a{
+.todo-gird a {
     color: #000;
     text-decoration: none;
 }
@@ -82,7 +79,7 @@ export default defineComponent({
     padding: 16px;
 }
 
-.todo-item:hover{
+.todo-item:hover {
     background-color: #eee;
 }
 

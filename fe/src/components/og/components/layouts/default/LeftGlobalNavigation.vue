@@ -5,6 +5,7 @@
         <TextLink to="/widget">Widget</TextLink>
         <TextLink to="/listener-checker">Listener Checker</TextLink>
         <TextLink to="/popcorn">Popcorn</TextLink>
+        <TextLink to="/image-crop">Image Crop</TextLink>
     </div>
 </template>
 

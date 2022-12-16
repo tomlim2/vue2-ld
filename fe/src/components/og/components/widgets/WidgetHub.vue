@@ -63,8 +63,8 @@ export default defineComponent({
     },
     methods: {
         log(evt: any) {
-            const valueArr = this.widgetListInProgress.map(function (item) { return item.name });
-            const isDuplicate = valueArr.some(function (item, idx) {
+            const valueArr = this.widgetListInProgress.map(function (item: any) { return item.name });
+            const isDuplicate = valueArr.some(function (item: any, idx: number) {
                 return valueArr.indexOf(item) != idx
             });
             if (isDuplicate) {

@@ -1,6 +1,6 @@
 <template>
-    <span :class="['boolean', {on: boolean}]">
-        <slot />
+    <span :class="['boolean', { on: boolean }]">
+        {{boolean ? 'Done' : 'In progress'}}
     </span>
 </template>
 
@@ -21,11 +21,17 @@ export default defineComponent({
 
 <style scoped>
 .boolean {
-    color: red;
-    font-weight: 600;
+    display: content;
+    padding: 0;
+    background-color: red;
+    color: white;
+
+    text-transform: uppercase;
+
     transition: 150ms ease-in-out all;
 }
-.on{
-    color: green;
+
+.on {
+    background-color: blue;
 }
 </style>

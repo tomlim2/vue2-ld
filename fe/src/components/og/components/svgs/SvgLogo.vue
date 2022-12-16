@@ -11,7 +11,17 @@ import { defineComponent } from 'vue';
 import store from '@/store/index';
 import router from '@/router';
 
+interface Color {
+    default: string;
+    widget: string;
+}
+
 type AppMode = 'default' | 'widget'
+
+const color: Color = {
+    default: '#252525',
+    widget: 'greenyellow'
+}
 
 export default defineComponent({
     name: "component-empty",
@@ -30,12 +40,8 @@ export default defineComponent({
     },
     mounted: () => { },
     computed: {
-        appMode() { return store.state.appMode },
+        appMode(): AppMode { return store.state.appMode },
         fillColor() {
-            let color = {
-                default: '#252525',
-                widget: 'greenyellow'
-            }
             return color[this.appMode as AppMode]
         }
     }
@@ -49,7 +55,7 @@ export default defineComponent({
 
 }
 
-.logo:hover{
+.logo:hover {
     fill: blue;
 }
 </style>

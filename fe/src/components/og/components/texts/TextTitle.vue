@@ -1,7 +1,7 @@
 <template>
-    <h2 class="text-title">
+    <div :class="['title', usage]">
         <slot />
-    </h2>
+    </div>
 </template>
 
 <script lang="ts">
@@ -10,13 +10,32 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     name: "text-title",
     display: "Widget Area",
+    props: {
+        usage: {
+            type: String,
+            default: 'page'
+        }
+    }
 });
 </script>
 
 <style scoped>
-h2 {
-    display: inline-block;
+.title {
+    
+}
+
+.page {
     font-size: 1.8rem;
     font-weight: 700;
+}
+
+.main {
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.list {
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 </style>

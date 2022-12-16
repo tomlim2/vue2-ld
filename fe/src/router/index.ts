@@ -29,6 +29,12 @@ const router = new VueRouter({
                     component: pages.listenerChecker,
                     path: '/listener-checker'
                 },
+                {
+                    name: "popcorn",
+                    //@ts-ignore
+                    component: pages.popcorn,
+                    path: '/popcorn'
+                },
             ]
         },
 

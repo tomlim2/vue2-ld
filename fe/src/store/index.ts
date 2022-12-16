@@ -9,13 +9,15 @@ interface StoreState {
   count: number
   appMode: AppMode
   widgets: any
+  todos: any
 }
 
 const store = new Vuex.Store({
   state: {
     count: 0,
     appMode: 'default' as AppMode,
-    widgets: {}
+    widgets: {},
+    todos: []
   },
   mutations: {
     increment(state: StoreState) {

@@ -27,15 +27,24 @@ class ModelTest {
     }
 
     getWidgets = async () => {
-        const response = await this.GET('widget/list')
+        const response = await this.GET('widget')
         if (response) {
             store.state.widgets = response
         }
     }
 
     postCustomWidgets = async (body: any) => {
-        const response = await this.POST('widget/list', body)
+        const response = await this.POST('widget', body)
         return response
+    }
+
+    getTodoList = async () => {
+        const response = await this.GET('todo')
+        if (response) {
+            console.log(response);
+            
+            store.state.todos = response
+        }
     }
 }
 

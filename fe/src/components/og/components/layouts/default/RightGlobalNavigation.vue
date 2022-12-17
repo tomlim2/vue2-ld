@@ -29,5 +29,6 @@ export default {
     height: 100vh;
     padding: 16px;
     border-left: #252525 solid 2px;
+    background-color: white;
 }
 </style>

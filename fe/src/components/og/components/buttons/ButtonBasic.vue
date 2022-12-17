@@ -1,10 +1,8 @@
 <template>
     <button class="button" :class="[{ activated }]" v-on:click="onButtonClick" :disabled="disabled">
-        <span class="name" :style="{ backgroundColor, color }">
+        <div class="button__name" :style="{ backgroundColor, color}">
             <slot />
-        </span>
-        <slot />
-        <span class="base" />
+        </div>
     </button>
 </template>
 
@@ -32,43 +30,29 @@ export default defineComponent({
 <style scoped>
 button {
     position: relative;
-    padding: 10px 12px;
     border: none;
     cursor: pointer;
+    background-color: inherit;
 }
 
-.name {
+.button__name {
     box-sizing: border-box;
-    position: absolute;
-    left: 0;
-    top: 0;
     padding: 8px 10px;
     border: 2px black solid;
     border-radius: 5px;
-    color: black;
     background-color: white;
-    z-index: 1;
     transition: all ease-in-out 150ms;
+    color: black;
     font-weight: 600;
     pointer-events: none;
 }
 
-button:hover .name {
-    top: -4px;
-    left: -4px;
+button:hover .button__name {
+    transform: translate(-6px, -6px);
+    filter: drop-shadow(6px 6px 0);
 }
 
-.base {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background-color: black;
-}
-
-.activated .name {
+.activated .button__name{
     background-color: greenyellow;
 }
 </style>

@@ -52,11 +52,12 @@ export default defineComponent({
     border-radius: 10px;
     padding: 8px;
     background-color: #ededed;
+    overflow: hidden;
 }
 
 .remove-button {
     position: absolute;
-    right: -4px;
-    top: 2px;
+    right: -2px;
+    bottom: 4px;
 }
 </style>

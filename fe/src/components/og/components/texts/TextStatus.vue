@@ -21,9 +21,11 @@ export default defineComponent({
 
 <style scoped>
 .boolean {
-    display: content;
-    padding: 0;
+    display: inline-block;
+    text-align: center;
+    padding: 2px 4px;
     background-color: red;
+    font-size: .65rem;
     color: white;
 
     text-transform: uppercase;

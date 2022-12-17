@@ -3,9 +3,17 @@
         <TextTitle>
             Image Crop
         </TextTitle>
-        <TextParagraph>file-saver & vue-advanced-cropper</TextParagraph>
+        <TextParagraph>#vue-advanced-cropper@^1.11.5  #file-saver@^2.0.5</TextParagraph>
         <div class="content">
             <div class="upload-example__cropper-wrapper">
+                <div class="upload-example__buttons-wrapper">
+                    <ButtonBasic class="upload-example__button" :onClick="uploadImage">
+                        <input :style="{ position: 'absolute', top: 0, opacity: '0', width: 0, height: 0 }" ref="file"
+                            type="file" accept="image/*" @change="loadImage($event)" />Upload Image
+                    </ButtonBasic>
+                    <ButtonBasic v-if="image.src" class="upload-example__button" :onClick="crop">Download Result
+                    </ButtonBasic>
+                </div>
                 <cropper ref="cropper" class="upload-example__cropper" check-orientation :src="image.src"
                     :stencil-props="{
                         aspectRatio: 1 / 1
@@ -17,13 +25,7 @@
                     {{ image.type }}
                 </div>
             </div>
-            <div class="upload-example__buttons-wrapper">
-                <ButtonBasic class="upload-example__button" :onClick="uploadImage">
-                    <input :style="{ position: 'absolute', top: 0, opacity: '0', width: 0, height: 0 }" ref="file"
-                        type="file" accept="image/*" @change="loadImage($event)" />UploadImage</ButtonBasic>
-                <ButtonBasic v-if="image.src" class="upload-example__button" :onClick="crop">DownloadResult
-                </ButtonBasic>
-            </div>
+
         </div>
     </div>
 </template>
@@ -85,7 +87,7 @@ export default defineComponent({
         widgetEditMode: () => { return store.state.appMode == 'widget' }
     },
     methods: {
-        uploadImage(){
+        uploadImage() {
             this.$refs.file.click()
         },
         crop() {
@@ -169,6 +171,7 @@ export default defineComponent({
     min-height: 300px;
     max-height: 500px;
     width: 100%;
+    margin-top: 16px;
 }
 
 .upload-example__cropper-wrapper {

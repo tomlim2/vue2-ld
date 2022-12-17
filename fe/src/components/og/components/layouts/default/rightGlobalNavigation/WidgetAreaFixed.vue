@@ -29,9 +29,9 @@ export default {
     padding: 8px;
     width: 100%;
     height: 54px;
-    background-color: #252525;
-    color: #fcfcfc;
+    background-color: mediumspringgreen;
+    color: #000;
     border-radius: 10px;
-    border: 2px solid #cdcdcd;
+    border: 2px solid #000;
 }
 </style>

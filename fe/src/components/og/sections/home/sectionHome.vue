@@ -5,7 +5,8 @@
                 TodoList
             </TextTitle>
             <div v-if="todos" class="todo-gird">
-                <router-link v-for="todo in todos" :key="todo.title" class="todo-item" :to='todo.to'>
+                <router-link v-for="todo in todos" :key="todo.title" :to='todo.to' class="todo-item"
+                    :class="{ done: todo.isCompleted }">
                     <TextStatus class="status" :boolean="todo.isCompleted" />
                     <TextTitle usage="list">
                         {{ todo.title }}
@@ -76,11 +77,21 @@ export default defineComponent({
 
 .todo-item {
     border: 2px solid #000;
+    background-color: white;
     padding: 16px;
+    transition: 150ms background-color ease-in-out;
 }
 
 .todo-item:hover {
     background-color: #eee;
+}
+
+.todo-item.done {
+    background-color: greenyellow;
+}
+
+.todo-item.done:hover {
+    background-color: mediumspringgreen;
 }
 
 hr {

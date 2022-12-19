@@ -1,6 +1,6 @@
 <template>
     <div class="widget-custom-type-C">
-        widget-custom-type-C
+        
     </div>
 </template>
 

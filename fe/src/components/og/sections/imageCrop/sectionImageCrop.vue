@@ -171,6 +171,7 @@ export default defineComponent({
     min-height: 300px;
     max-height: 500px;
     width: 100%;
+    background-color: #ececec;
     margin-top: 16px;
 }
 

@@ -36,6 +36,11 @@ const router = new VueRouter({
                     path: '/popcorn'
                 },
                 {
+                    name: "lottie",
+                    component: pages.lottie,
+                    path: '/lottie'
+                },
+                {
                     name: "image-crop",
                     //@ts-ignore
                     component: pages.imageCrop,

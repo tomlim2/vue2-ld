@@ -1,10 +1,13 @@
 <template>
     <div class="widget-item">
         <WidgetItemWrapper :removeItem="onRemoveButtonClick" :type="type">
-            <WidgetCustomTypeA v-if="widgetSingleData.type == 'typeA'" />
-            <WidgetCustomTypeB v-if="widgetSingleData.type == 'typeB'" />
-            <WidgetCustomTypeC v-if="widgetSingleData.type == 'typeC'" />
-            <WidgetCustomTypeD v-if="widgetSingleData.type == 'typeD'" />
+            <TextTitle usage="list">{{ widgetSingleData.name }}</TextTitle> 
+            <div>
+                <WidgetCustomTypeA v-if="widgetSingleData.type == 'typeA'" />
+                <WidgetCustomTypeB v-if="widgetSingleData.type == 'typeB'" />
+                <WidgetCustomTypeC v-if="widgetSingleData.type == 'typeC'" />
+                <WidgetCustomTypeD v-if="widgetSingleData.type == 'typeD'" />
+            </div>
         </WidgetItemWrapper>
     </div>
 </template>
@@ -16,6 +19,7 @@ import WidgetCustomTypeA from '@/components/og/components/widgets/custom/WidgetC
 import WidgetCustomTypeB from '@/components/og/components/widgets/custom/WidgetCustomTypeB.vue';
 import WidgetCustomTypeC from '@/components/og/components/widgets/custom/WidgetCustomTypeC.vue';
 import WidgetCustomTypeD from '@/components/og/components/widgets/custom/WidgetCustomTypeD.vue';
+import TextTitle from '../texts/TextTitle.vue';
 
 type WidgetType = 'widget-list' | 'widget-user' | undefined
 
@@ -31,12 +35,13 @@ export default defineComponent({
     name: "widget-item",
     display: "Widget-item",
     components: {
-        WidgetItemWrapper,
-        WidgetCustomTypeA,
-        WidgetCustomTypeB,
-        WidgetCustomTypeC,
-        WidgetCustomTypeD
-    },
+    WidgetItemWrapper,
+    WidgetCustomTypeA,
+    WidgetCustomTypeB,
+    WidgetCustomTypeC,
+    WidgetCustomTypeD,
+    TextTitle
+},
     props: {
         type: {
             type: String as PropType<WidgetType>,

@@ -5,6 +5,7 @@ import PageWidget from '@/components/og/pages/PageWidget.vue'
 import PageHome from "@/components/og/pages/PageHome.vue"
 import PagePopcorn from "@/components/og/pages/PagePopcorn.vue"
 import PageImageCrop from "@/components/og/pages/PageImageCrop.vue"
+import PageLottie from "@/components/og/pages/PageLottie.vue"
 
 const pages = {
     widget: PageWidget,
@@ -12,6 +13,7 @@ const pages = {
     listenerChecker: PageListenerChecker,
     popcorn: PagePopcorn,
     imageCrop: PageImageCrop,
+    lottie:PageLottie
 }
 
 const layouts = {

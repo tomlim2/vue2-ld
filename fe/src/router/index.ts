@@ -1,55 +1,27 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import { layouts, pages } from '@/router/pages'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode: "history",
-    routes: [
-        {
-            path: '/',
-            //@ts-ignore
-            component: layouts.default,
-            children: [
-                {
-                    name: "home",
-                    //@ts-ignore
-                    component: pages.home,
-                    path: '/'
-                },
-                {
-                    name: "widget",
-                    component: pages.widget,
-                    path: '/widget'
-                },
-                {
-                    name: "listener checker",
-                    //@ts-ignore
-                    component: pages.listenerChecker,
-                    path: '/listener-checker'
-                },
-                {
-                    name: "popcorn",
-                    //@ts-ignore
-                    component: pages.popcorn,
-                    path: '/popcorn'
-                },
-                {
-                    name: "lottie",
-                    component: pages.lottie,
-                    path: '/lottie'
-                },
-                {
-                    name: "image-crop",
-                    //@ts-ignore
-                    component: pages.imageCrop,
-                    path: '/image-crop'
-                },
-            ]
-        },
+  mode: "history",
+  base: import.meta.env.BASE_URL,
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: HomeView,
+    },
+    {
+      path: "/about",
+      name: "about",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/AboutView.vue"),
+    },
+  ],
+});
 
-    ]
-})
-
-export default router
+export default router;

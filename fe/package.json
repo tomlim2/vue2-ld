@@ -1,5 +1,5 @@
 {
-  "name": "fe",
+  "name": "og-community",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "axios": "^1.2.1",
     "pinia": "^2.0.16",
     "vue": "^2.7.7",
     "vue-router": "^3.5.4"
@@ -24,8 +25,11 @@
     "@vue/tsconfig": "^0.1.3",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
+    "node-sass": "^7.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
+    "sass": "^1.45.2",
+    "sass-loader": "10",
     "terser": "^5.14.2",
     "typescript": "~4.7.4",
     "vite": "^3.0.2",
